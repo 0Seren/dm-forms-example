@@ -1,14 +1,21 @@
-@*@(list: List[(String, String)])(implicit req: controllers.users.VisitRequest[_])
+@(list: List[(String, String)])(implicit req: play.api.mvc.Request[_])
 
-@views.main("formTester") {
-    
-    <h1>Form Results</h1>
-    <p/>
-    
-    @for(i <- list){
-    	<p>
-    	@{i._1.toString+"--->"+i._2.toString}
-    	</p>
-    }
-}*@
-    
+<html>
+<head>
+  <title>Form Results</title>
+</head>
+<body>
+  <h1>Form Results</h1>
+
+  <table border="1">
+    <thead>
+      <tr><th>Field Name</th><th>Value as String</th></tr>
+    </thead>
+    <tbody>
+      @for(nv <- list) {
+       <tr><td>@nv._1.toString</td><td>@nv._2.toString</td></tr>
+      }
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,6 +1,6 @@
 #
-GET  /test				controllers.for_forms.App.formTest()
-POST /test				controllers.for_forms.App.formTestP()
+GET  /test				controllers.App.formTestGet()
+POST /test				controllers.App.formTestPost()
 
 GET  /webjars/*file		controllers.WebJarAssets.at(file)
 

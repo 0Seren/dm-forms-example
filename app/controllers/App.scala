@@ -1,10 +1,10 @@
 package controllers
 
 import play.api.mvc.{ Action, Controller }
-import forms._
-import forms.fields._
-import forms.widgets._
-import forms.validators._
+import org.dupontmanual.forms._
+import org.dupontmanual.forms.fields._
+import org.dupontmanual.forms.widgets._
+import org.dupontmanual.forms.validators._
 
 /** This is an example of how to implement a form in a controller.
   */
@@ -78,7 +78,7 @@ object App extends Controller {
 
     /** Creates a new CheckboxFieldOptional
       */
-    val MultChoiceField = new CheckboxFieldOptional("Mult Choice", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")), useSelectInputMult = true)
+    val MultChoiceField = new CheckboxFieldMultipleOptional("Mult Choice", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")))
 
     /** Creates a new FileFieldOptional
       */
@@ -133,8 +133,8 @@ object App extends Controller {
     * templates page (or views page) to be displayed. Binding is required for
     * the input of the user to be processed.
     */
-  def formTest() = Action { implicit req =>
-    Ok(Html(templates.for_forms.Tester(Binding(FormTests))))
+  def formTestGet() = Action { implicit req =>
+    Ok(views.html.formTester(Binding(FormTests)))
   }
 
   /** Method formTestP processes the returned Binding from the form submission via
@@ -145,9 +145,9 @@ object App extends Controller {
     * will grab the returned value (see forms.fields._.asValue to see what is returned
     * for each field) of each field and displays the output on a webpage.
     */
-  def formTestP() = Action { implicit req =>
+  def formTestPost() = Action { implicit req =>
     Binding(FormTests, req) match {
-      case ib: InvalidBinding => Ok(Html(templates.for_forms.Tester(ib)))
+      case ib: InvalidBinding => Ok(views.html.formTester(ib))
       case vb: ValidBinding => {
         val TheChoice = vb.valueOf(FormTests.ChoiceField)
         val TheDate = vb.valueOf(FormTests.DateField)
@@ -168,7 +168,7 @@ object App extends Controller {
         val TheBoolean = vb.valueOf(FormTests.BooleanField)
         val listOfStuff = List(("Radio", TheRadioR.toString), ("Boolean Field", TheBoolean.toString), ("File", TheFile.toString), ("Choice Field Mult", TheChoiceMult.toString), ("Checkbox Optional", TheCheckboxO.toString), ("AutoComplete Field", TheAutoComplete.toString), ("Choice Field", TheChoice.toString), ("Date Field", TheDate.toString), ("Time Field", TheTime.toString), ("Timestamp Field", TheTimestamp.toString), ("Email Field", TheEmail.toString), ("NumericField", TheNumeric.toString), ("Password Field", ThePassword.toString), ("Phone Field", ThePhone.toString), ("Text Field", TheText.toString), ("Url Field", TheUrl.toString), ("Edited Field", TheEdited.toString))
 
-        Ok(Html(templates.for_forms.Results(listOfStuff)))
+        Ok(views.html.showResults(listOfStuff))
       }
     }
   }
