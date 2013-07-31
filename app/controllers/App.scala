@@ -78,7 +78,7 @@ object App extends Controller {
 
     /** Creates a new CheckboxFieldOptional
       */
-    val MultChoiceField = new CheckboxFieldMultipleOptional("Mult Choice", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")))
+    val MultChoiceField = new ChoiceFieldMultipleOptional("Mult Choice", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")))
 
     /** Creates a new FileFieldOptional
       */
