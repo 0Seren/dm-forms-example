@@ -1,0 +1,27 @@
+@(table: scala.xml.NodeSeq)(implicit req: play.api.mvc.Request[_])
+
+<html>
+<head>
+  <title>ist ofExample Forms</title>
+  <link rel="stylesheet" href="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("jquery-ui.css"))"/>
+  <link rel="stylesheet" href="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("bootstrap.css"))"/>
+  <link rel="stylesheet" href="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("datepicker.css"))"/>
+  <link rel="stylesheet" href="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("bootstrap-timepicker.min.css"))"/>
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements. -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script src="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("jquery.js"))"></script>
+  <script src="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("jquery-ui.js"))"></script>
+  <script src="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("bootstrap.js"))"></script>
+  <script src="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("jquery.maskedinput.js"))"></script>
+  <script src="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("bootstrap-datepicker.js"))"></script>
+  <script src="@controllers.routes.WebJarAssets.at(controllers.WebJarAssets.locate("bootstrap-timepicker.min.js"))"></script>
+</head> 
+<body>
+  <h1>List of Example Forms</h1>
+  
+  <p> @table </p>
+  
+</body>
+</html>

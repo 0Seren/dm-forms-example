@@ -5,6 +5,7 @@ import org.dupontmanual.forms._
 import org.dupontmanual.forms.fields._
 import org.dupontmanual.forms.widgets._
 import org.dupontmanual.forms.validators._
+import scala.xml._
 
 /** This is an example of how to implement a form in a controller.
   */
@@ -104,7 +105,7 @@ object App extends Controller {
     /** Of type List[Field] and includes the fields you want to
       * put on your webpage in the order you want them to appear.
       */
-    val fields = List(editedTextField, RadioR, BooleanField, FileField, ChoiceFieldMultiple, Checkboxo, ACField, ChoiceField, DateField, TimeField, TimestampField, EmailField, NumericField, PasswordField, PhoneField, TextField, UrlField)
+    val fields = List(editedTextField, RadioR, BooleanField, FileField, MultChoiceField, Checkboxo, ACField, ChoiceField, DateField, TimeField, TimestampField, EmailField, NumericField, PasswordField, PhoneField, TextField, UrlField)
 
     /*
     These are just some methods or options in Form that are being overriden
@@ -162,7 +163,7 @@ object App extends Controller {
         val ThePhone = vb.valueOf(FormTests.PhoneField)
         val TheCheckboxO = vb.valueOf(FormTests.Checkboxo)
         val TheRadioR = vb.valueOf(FormTests.RadioR)
-        val TheChoiceMult = vb.valueOf(FormTests.ChoiceFieldMultiple)
+        val TheChoiceMult = vb.valueOf(FormTests.MultChoiceField)
         val TheFile = vb.valueOf(FormTests.FileField)
         val TheAutoComplete = vb.valueOf(FormTests.ACField)
         val TheBoolean = vb.valueOf(FormTests.BooleanField)
@@ -172,5 +173,12 @@ object App extends Controller {
       }
     }
   }
+  
+  def listOfFormExamples() = Action { implicit req =>
+    val table = 
+      <table>
+  		<tr><a href="/test/1">Mostly Optional Fields</a></tr>
+  	  </table>
+      Ok(views.html.listOfFormExamples(table))
+  }
 }
-
