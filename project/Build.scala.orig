@@ -14,8 +14,13 @@ object ApplicationBuild extends Build {
   val main = play.Project(
     appName, appVersion, appDependencies
   ).settings(
+<<<<<<< HEAD
+    resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+    )
+=======
     scalaVersion := "2.10.2",
     resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
   )
+>>>>>>> 71ed047f9b78076554b70fff1967ec63dd30fb2a
  
 }

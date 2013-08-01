@@ -78,7 +78,11 @@ object App extends Controller {
 
     /** Creates a new ChoiceFieldMutipleOptional
       */
+<<<<<<< HEAD
+    val ChoiceFieldMultiple = new ChoiceFieldMultipleOptional("Choice Field Multiple", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")))
+=======
     val MultChoiceField = new ChoiceFieldMultipleOptional("Mult Choice", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")))
+>>>>>>> 71ed047f9b78076554b70fff1967ec63dd30fb2a
 
     /** Creates a new FileFieldOptional
       */
