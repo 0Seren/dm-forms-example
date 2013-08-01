@@ -76,9 +76,9 @@ object App extends Controller {
       */
     val RadioR = new RadioField("Radio", List(("cat", 11), ("dog", 12), ("mouse", 13), ("Bird", "BIRD BIRD BIRD! BIRD IS THE WORD."), ("Turtle", listOfSpectopers)))
 
-    /** Creates a new CheckboxFieldOptional
+    /** Creates a new ChoiceFieldMutipleOptional
       */
-    val MultChoiceField = new CheckboxFieldMultipleOptional("Mult Choice", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")))
+    val ChoiceFieldMultiple = new ChoiceFieldMultipleOptional("Choice Field Multiple", List(("UK", "Kentucky"), ("University of Illinois", "Illinois"), ("Wash U", "Missouri"), ("MIT", "Massachucets")))
 
     /** Creates a new FileFieldOptional
       */
@@ -104,7 +104,7 @@ object App extends Controller {
     /** Of type List[Field] and includes the fields you want to
       * put on your webpage in the order you want them to appear.
       */
-    val fields = List(editedTextField, RadioR, BooleanField, FileField, MultChoiceField, Checkboxo, ACField, ChoiceField, DateField, TimeField, TimestampField, EmailField, NumericField, PasswordField, PhoneField, TextField, UrlField)
+    val fields = List(editedTextField, RadioR, BooleanField, FileField, ChoiceFieldMultiple, Checkboxo, ACField, ChoiceField, DateField, TimeField, TimestampField, EmailField, NumericField, PasswordField, PhoneField, TextField, UrlField)
 
     /*
     These are just some methods or options in Form that are being overriden
@@ -162,11 +162,11 @@ object App extends Controller {
         val ThePhone = vb.valueOf(FormTests.PhoneField)
         val TheCheckboxO = vb.valueOf(FormTests.Checkboxo)
         val TheRadioR = vb.valueOf(FormTests.RadioR)
-        val TheChoiceMult = vb.valueOf(FormTests.MultChoiceField)
+        val TheChoiceMult = vb.valueOf(FormTests.ChoiceFieldMultiple)
         val TheFile = vb.valueOf(FormTests.FileField)
         val TheAutoComplete = vb.valueOf(FormTests.ACField)
         val TheBoolean = vb.valueOf(FormTests.BooleanField)
-        val listOfStuff = List(("Radio", TheRadioR.toString), ("Boolean Field", TheBoolean.toString), ("File", TheFile.toString), ("Choice Field Mult", TheChoiceMult.toString), ("Checkbox Optional", TheCheckboxO.toString), ("AutoComplete Field", TheAutoComplete.toString), ("Choice Field", TheChoice.toString), ("Date Field", TheDate.toString), ("Time Field", TheTime.toString), ("Timestamp Field", TheTimestamp.toString), ("Email Field", TheEmail.toString), ("NumericField", TheNumeric.toString), ("Password Field", ThePassword.toString), ("Phone Field", ThePhone.toString), ("Text Field", TheText.toString), ("Url Field", TheUrl.toString), ("Edited Field", TheEdited.toString))
+        val listOfStuff = List(("Radio", TheRadioR.toString), ("Boolean Field", TheBoolean.toString), ("File", TheFile.toString), ("Choice Field Multiple", TheChoiceMult.toString), ("Checkbox Optional", TheCheckboxO.toString), ("AutoComplete Field", TheAutoComplete.toString), ("Choice Field", TheChoice.toString), ("Date Field", TheDate.toString), ("Time Field", TheTime.toString), ("Timestamp Field", TheTimestamp.toString), ("Email Field", TheEmail.toString), ("NumericField", TheNumeric.toString), ("Password Field", ThePassword.toString), ("Phone Field", ThePhone.toString), ("Text Field", TheText.toString), ("Url Field", TheUrl.toString), ("Edited Field", TheEdited.toString))
 
         Ok(views.html.showResults(listOfStuff))
       }

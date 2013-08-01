@@ -1,6 +1,8 @@
 #
 GET  /test				controllers.App.formTestGet()
 POST /test				controllers.App.formTestPost()
+GET  /					controllers.App.formTestGet()
+POST /					controllers.App.formTestPost()
 
 GET  /webjars/*file		controllers.WebJarAssets.at(file)
 
